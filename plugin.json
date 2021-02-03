@@ -1,0 +1,16 @@
+{
+	"info":{
+		"name":"Nova3D Nodejs-TS" ,
+		"description":"NOVA3D Whale", 
+		"author":"Agua",
+		"email":"438517073@qq.com",
+		"type":"outputSlicer" ,
+		"winExecPath":"plugin.bat" ,
+		"macExecPath":"macshell.command",
+		"linuxExecPath":"plugin.bat",
+		"inputSuffix":"zip_raw_png" ,
+		"outputSuffix":"whale.cws",
+		"detail":"version:1.0.0, Models:[Whale]", 
+		"requireVersion":"V1.6.0" 
+	}
+}

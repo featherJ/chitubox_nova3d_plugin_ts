@@ -1,0 +1,31 @@
+{
+	"name": "ext-api-test",
+	"version": "1.0.0",
+	"main": "./out/main.js",
+	"scripts": {
+		"build": "gulp release",
+		"watch": "webpack --watch --progress --config  webpack.debug.config.js"
+	},
+	"dependencies": {
+		"@types/node": "^7.0.7",
+		"@types/pngjs": "^3.4.2",
+		"gulp-copy": "^4.0.1",
+		"pngjs": "^6.0.0"
+	},
+	"devDependencies": {
+		"del": "^2.2.0",
+		"gulp": "^3.9.1",
+		"gulp-babel": "^6.1.2",
+		"gulp-uglify": "^1.5.3",
+		"gulp-zip": "^4.0.0",
+		"webpack": "^4.0.0",
+		"webpack-cli": "3.1.1",
+		"uglifyjs-webpack-plugin": "1.2.7",
+		"ts-import-plugin": "^1.4.4",
+		"ts-loader": "^4.3.0",
+		"url-loader": "^1.1.1",
+		"typescript": "^3.9.7",
+		"typescript-formatter": "7.1.0",
+		"binary-loader": "0.0.1"
+	}
+}

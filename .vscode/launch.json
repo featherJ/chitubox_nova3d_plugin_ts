@@ -1,0 +1,24 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "启动",
+			"type": "node",
+			"request": "launch",
+			"program": "${workspaceRoot}/out/main.js",
+			"stopOnEntry": false,
+			"args": ["${workspaceRoot}/debug/source"],
+			"cwd": "${workspaceRoot}",
+			"preLaunchTask": null,
+			"runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "development"
+			},
+			"sourceMaps": true,
+			"outDir": "${workspaceRoot}/out"
+		}
+	]
+}
