@@ -20,12 +20,12 @@ export class Nova3DPlugin {
 		this.gCodeGenerator = new GCodeGenerator();
 		this.imageConverter = new ImageConverter();
 
-		try {
-			this.buildGCode();
+		// try {
+			// this.buildGCode();
 			this.buildImages();
-		} catch (e) {
-			fs.writeFileSync(path.join(zipTmpDir,'error.log'),e.stack,'utf8');
-		}
+		// } catch (e) {
+			// fs.writeFileSync(path.join(zipTmpDir,'error.log'),e.stack,'utf8');
+		// }
 	}
 
 	private buildGCode():void{
@@ -38,6 +38,7 @@ export class Nova3DPlugin {
 	}
 
 	private buildImages():void{
+		var stamp = new Date().getTime();
 		var slicePaths:string[] = [];
 		var files = fs.readdirSync(this.tempPath);
 		for(var i = 0;i<files.length;i++){
@@ -51,6 +52,7 @@ export class Nova3DPlugin {
 		for(var i = 0;i<slicePaths.length;i++){
 			this.imageConverter.convertImage(slicePaths[i]);
 		}
+		console.log('图片处理时间:',(new Date().getTime()-stamp)+'ms');
 	}
 }
 
