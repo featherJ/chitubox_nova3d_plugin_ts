@@ -7,9 +7,11 @@
 		"watch": "webpack --watch --progress --config  webpack.debug.config.js"
 	},
 	"dependencies": {
+		"@types/archiver": "^5.1.0",
 		"@types/node": "^14.14.25",
 		"@types/pngjs": "^3.4.2",
-		"node-libpng": "^0.2.18"
+		"node-libpng": "^0.2.18",
+		"zip-local": "^0.3.4"
 	},
 	"devDependencies": {
 		"binary-loader": "0.0.1",

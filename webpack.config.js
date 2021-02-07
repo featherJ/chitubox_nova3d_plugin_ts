@@ -21,8 +21,8 @@ module.exports = {
         }
     },
     entry: {
-        "main.js": './main.ts',
-        "converter.node.js":'./base/images/converter.node.ts'
+        "main.js": './main.ts'
+        // "converter.node.js":'./base/images/converter.node.ts'
     },
     output: {
 		filename: '[name]',

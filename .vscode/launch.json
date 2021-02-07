@@ -6,7 +6,7 @@
 			"request": "launch",
 			"name": "Launch Program",
 			"program": "${workspaceRoot}/out/main.js",
-			"args": ["${workspaceRoot}/debug/source"],
+			"args": ["","","${workspaceRoot}/debug/source","${workspaceRoot}/debug/source/target.cws_whale"],
 			"outFiles": [
 				"${workspaceFolder}/out/**/*.js"
 			],
