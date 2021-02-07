@@ -7,13 +7,13 @@
 		"watch": "webpack --watch --progress --config  webpack.debug.config.js"
 	},
 	"dependencies": {
-		"@types/archiver": "^5.1.0",
-		"@types/node": "^14.14.25",
-		"@types/pngjs": "^3.4.2",
 		"node-libpng": "^0.2.18",
 		"zip-local": "^0.3.4"
 	},
 	"devDependencies": {
+		"@types/archiver": "^5.1.0",
+		"@types/node": "^14.14.25",
+		"@types/pngjs": "^3.4.2",
 		"binary-loader": "0.0.1",
 		"del": "^2.2.0",
 		"gulp": "^4.0.2",
@@ -26,7 +26,6 @@
 		"uglifyjs-webpack-plugin": "1.2.7",
 		"url-loader": "^1.1.1",
 		"webpack": "^4.0.0",
-		"webpack-cli": "3.1.1",
-		"worker-loader": "^3.0.7"
+		"webpack-cli": "3.1.1"
 	}
 }
