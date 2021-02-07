@@ -22,6 +22,7 @@ module.exports = {
     },
     entry: {
         "main.js": './main.ts',
+        "converter.node.js":'./base/images/converter.node.ts'
     },
     output: {
 		path: path.join(__dirname,'./out/'),
@@ -31,7 +32,6 @@ module.exports = {
     },
     module: {
         rules: [
-            
             {
                 test: /\.ts(x?)$/,
                 use: 'ts-loader'

@@ -1,8 +1,8 @@
-import {PNG} from 'pngjs';
 import { readPngFileSync,writePngFileSync } from "node-libpng";
+import { ISlice } from './slice';
 
-import * as fs from 'fs';
 import * as path from 'path';
+import * as fs from 'fs';
 
 /**
  * 诺瓦用的图片转换器
@@ -11,19 +11,10 @@ export class ImageConverter{
     constructor(){
     }
 
-    public convertImage(imagePath:string):void{
+    public convertImage(slice:ISlice):void{
 
-        var sourceImageName = path.basename(imagePath);
-        var sourceDir = path.dirname(imagePath);
-        var sourceIndexStr = sourceImageName.split('.')[0]
-        var sourceIndex = parseInt(sourceIndexStr);
-        if(sourceIndexStr != sourceIndex.toString()){
-            //如果不是序列图则不继续
-            return;
-        }
-        console.log(sourceIndex);
 
-        var sourceData = readPngFileSync(imagePath);
+        var sourceData = readPngFileSync(slice.path);
         var targetWidth = Math.floor(sourceData.width/3);
         var targetHeight = Math.floor(sourceData.height);
 
@@ -48,15 +39,15 @@ export class ImageConverter{
             }
         }
      
-        var targetIndexName = (sourceIndex-1)+'';
+        var targetIndexName = (slice.index-1)+'';
         while(targetIndexName.length < 5){
             targetIndexName = '0'+targetIndexName;
         }
         var targetName = 'nova3d'+targetIndexName+'.png';
+        var sourceDir = path.dirname(slice.path);
         var targetPath = path.join(sourceDir,targetName);
 
         writePngFileSync(targetPath,targetData,{width:targetWidth,height:targetHeight,compressionLevel:1});       
-
-        // fs.unlinkSync(imagePath);  测试完了再打开
+        fs.unlinkSync(slice.path);
     }
 }

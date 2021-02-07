@@ -6,6 +6,7 @@ const webpack = require('webpack');
 const fs = require('fs');
 const paths = require('path');
 const zip = require('gulp-zip');
+const { series, src, dest, watch } = require('gulp');
 
 
 
@@ -15,6 +16,7 @@ gulp.task('build', (callback) => {
             let config = require('./webpack.config.js');
             webpack(config, (err, stats) => {
                 if (err) {
+                    console.log('fuck');
                     console.error('webpack', err);
                     return;
                 }
@@ -37,23 +39,18 @@ gulp.task('build', (callback) => {
     })
 });
 
-gulp.task("copy", ['build'], (callback) => {
-    gulp.src('./execs/node')
-    .pipe(gulp.dest('./build/')).on('end', function () {
-        callback();
-    });
-});
 
+gulp.task('copy', gulp.series('build', (callback) => {
+    src('./execs/node')
+        .pipe(gulp.dest('./build/')).on('end', function () {
+            callback();
+        });
+}));
 
-
-gulp.task("release", ['copy'], (callback) => {
-
- 
-
-
-    gulp.src('build/**/*')
+gulp.task('release', gulp.series('copy', (callback) => {
+    src('build/**/*')
         .pipe(zip('Nova3DPlugin.CHplugin'))
         .pipe(gulp.dest('build-release')).on('end', function () {
             callback();
         });
-});
+}));
